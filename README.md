@@ -1,146 +1,93 @@
-# Pen-SLM — Staged GRPO Training
+# Pen-SLM — A Small Language Model for Automated Penetration Testing
 
-This repo trains a single LoRA adapter on top of **Qwen3-14B** by alternating
-between two tasks using GRPO (Group Relative Policy Optimization):
+Pen-SLM fine-tunes **Qwen3-14B** with a shared LoRA adapter using **GRPO** for two penetration-testing tasks:
 
-- **Strategy** ([train_strategy_qwen14b.py](train_strategy_qwen14b.py)) — given the
-  Penetration Testing Tree (PTT) and the previous step/result, generate the next
-  strategy.
-- **Action** ([train_action_qwen3_14B.py](train_action_qwen3_14B.py)) — given the PTT
-  and a strategy, generate a concrete action plan, MCP server selection, and usage
-  instructions.
+* **Strategy generation** — predicts the next high-level strategy from the Penetration Testing Tree (PTT) and previous results.
+* **Action planning** — converts a strategy into a concrete action plan, including MCP server selection and usage.
 
-[staged_training.py](staged_training.py) drives both trainers against one shared
-base model + LoRA adapter, switching between them on a schedule
-(`SWITCH_INTERVALS = [800, 400, 100, 50, 10]` optimization steps per side, repeating
-until `TOTAL_STEPS` is reached).
+The two tasks are trained alternately using [`staged_training.py`](staged_training.py).
 
-Both reward pipelines call the OpenAI API (`gpt-4o-mini` by default) as an
-LLM-judge, so an `OPENAI_API_KEY` is required even though the base model is local.
+## Requirements
 
-For running evaluations and the local inference server after training (sections
-9-10 below), see also [Experiments/README.md](Experiments/README.md) for the
-full walkthrough, including the 4-bit quantized deployment option for GPUs
-smaller than an A100.
+* Linux with an NVIDIA GPU
+* **48 GB+ VRAM recommended** (e.g., NVIDIA H100)
+* Python 3.10–3.12
+* OpenAI API key
 
-## 1. Requirements
+The OpenAI API is used as an LLM judge during training.
 
-- Linux with an NVIDIA H100 GPU (bitsandbytes 8-bit optimizer + bf16 training). A 14B
-  model with LoRA + gradient checkpointing comfortably needs **≥48GB VRAM**;
-  reduce `per_device_train_batch_size` in the trainer files if you have less.
-- Python 3.10–3.12 (Qwen3 tokenizer/model support requires a recent
-  `transformers`; very new Python versions may lag behind `bitsandbytes` /
-  `torch` wheel availability).
-- An OpenAI API key with access to `gpt-4o-mini`.
-
-## 2. Create the virtual environment
+## Installation
 
 ```bash
+git clone <repository-url>
+cd <repository>
+
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install --upgrade pip
-```
 
-## 3. Install dependencies
-
-A [requirements.txt](requirements.txt) is included in this repo.
-
-```bash
 pip install -r requirements.txt
 ```
 
-If your CUDA version needs a specific PyTorch build, install `torch` first
-from the [official index](https://pytorch.org/get-started/locally/) matching
-your CUDA version, then run the `pip install -r requirements.txt` above (pip
-will skip the already-satisfied `torch`).
-
-## 4. Set your OpenAI API key
+Set your OpenAI API key:
 
 ```bash
-export OPENAI_API_KEY="sk-..."
+export OPENAI_API_KEY="your-api-key"
 ```
 
-Both `train_strategy_qwen14b.py` and `train_action_qwen3_14B.py` read this
-from the environment; `train_action_qwen3_14B.py` will raise immediately at
-import time if it's missing.
+## Training Data
 
-## 5. Data
+Training data is provided in [`Data/training_data.csv`](Data/training_data.csv).
 
-Training data lives in [Data/training_data.csv](Data/training_data.csv) and
-must contain (at least) these columns:
+The dataset contains the following columns:
 
-```
-PTT, Previous step, Previous step result, New strategy, Strategy explanation,
-Action, MCP servers, MCP server usage
-```
-
-- The strategy dataset uses `PTT`, `Previous step`, `Previous step result` →
-  `New strategy` (+ `Strategy explanation`).
-- The action dataset uses `PTT`, `New strategy`, `Strategy explanation` →
-  `Action`, `MCP servers`, `MCP server usage`.
-
-## 6. Working directory (important)
-
-The training scripts load data and write checkpoints using paths relative to
-**one directory below the repo root**:
-
-```python
-pd.read_csv('./../Data/training_data.csv')
-FINAL_OUTPUT_DIR = "./../Trained_models/staged_final"
+```text
+PTT
+Previous step
+Previous step result
+New strategy
+Strategy explanation
+Action
+MCP servers
+MCP server usage
 ```
 
-So you must run the training command from a subdirectory of the repo (not
-the repo root itself), so that `../Data` resolves back to
-[Data/](Data). Create one and run from there, e.g.:
+The strategy task uses the PTT and previous step information to predict the **new strategy** and its explanation.
+
+The action task uses the strategy and its explanation to predict the **action plan**, MCP servers, and their usage.
+
+## Training
+
+Run the training script from a subdirectory of the repository:
 
 ```bash
 mkdir -p run
 cd run
-python3 ../staged_training.py
-```
 
-This will create `Trained_models/` as a sibling of `Data/` and `Experiments/`
-at the repo root.
-
-## 7. Run staged training
-
-From the `run/` directory created above:
-
-```bash
 python3 ../staged_training.py \
-  --total-steps 4000 \
-  --start-task strategy
+    --total-steps 4000 \
+    --start-task strategy
 ```
 
-Options ([staged_training.py](staged_training.py)):
+The training alternates between strategy and action planning and saves the resulting LoRA checkpoints to:
 
-- `--total-steps`: total optimization steps across the whole staged run
-  (default `4000`).
-- `--start-task {strategy,action}`: which task runs first in each paired stage
-  (default `strategy`).
-- `--strategy-part` / `--action-part`: optional fixed dataset slice/row-count
-  for each task (e.g. `slice(0,1000)` or `500`). If both are left unset, the
-  script cycles through the dataset in a shared, wrapping row window so both
-  tasks train on matching examples.
+```text
+Trained_models/Pen-SLM/
+```
 
-The run prints progress per stage (`Finished paired stage: X/TOTAL_STEPS steps
-completed`) and saves LoRA checkpoints under `Trained_models/staged_final/`.
-By default `staged_training.py` resumes from
-`Trained_models/staged_final/checkpoint-strategy_800`
-(`lora_adapter_path` in [staged_training.py](staged_training.py:16)) — for a
-fresh run with no prior adapter, edit that path to `None` before starting.
+### Options
 
-## 8. Monitoring
+```text
+--total-steps     Total training steps (default: 4000)
+--start-task      First task: strategy or action
+```
 
-Training logs (loss, reward components) print to stdout every step
-(`logging_steps = 1`); no external experiment tracker is wired up
-(`report_to = "none"` in both trainer configs).
+For evaluation and local inference, see [`Experiments/README.md`](Experiments/README.md).
 
-## 9. Run evaluation experiments
+
+## 8. Run evaluation experiments
 
 [Experiments/run_experiments.py](Experiments/run_experiments.py) fetches the
-trained `Pen-SLM` LoRA adapter into `Trained_models/Pen-SLM` (downloading it
-from Google Drive via `gdown` if it isn't there yet) and then runs both
+trained `Pen-SLM` LoRA adapter into `Trained_models/Pen-SLM` and then runs both
 scripts in [Experiments/Test-Set](Experiments/Test-Set):
 [test_strategy_Pen-SLM.py](Experiments/Test-Set/test_strategy_Pen-SLM.py) and
 [test_action_Pen-SLM.py](Experiments/Test-Set/test_action_Pen-SLM.py).
@@ -156,33 +103,11 @@ python3 Experiments/run_experiments.py
   already looks populated.
 - `--only strategy` / `--only action` runs just one of the two eval scripts.
 
-Requires `OPENAI_API_KEY` to be set (both eval scripts use `gpt-4o-mini` as an
+Requires `OPENAI_API_KEY` to be set (both eval scripts use `gpt-4o` as an
 LLM judge, same as training).
 
-**Known gaps you'll need to resolve before this produces results:**
 
-- `test_action_Pen-SLM.py` hardcodes its adapter path as
-  `Trained_models/GRPO_Qwen14B_single/checkpoint-final`, a different name than
-  the downloaded `Pen-SLM` model. `run_experiments.py` works around this by
-  symlinking that path to `Trained_models/Pen-SLM` rather than editing the
-  eval script.
-- Both eval scripts expect test CSVs that don't currently exist in
-  [Data/](Data): `Data/processed_data_test.csv` (+ optional
-  `Data/test_claude.csv`) for the strategy script, and
-  `Data/output_test_data.csv` for the action script. `Data/test_data.csv` has
-  a matching column schema (`Machine, PTT, Previous strategy, Previous step,
-  Previous step result, New strategy, Strategy explanation, Action, MCP
-  servers, MCP server usage, Results`) and looks like the intended source —
-  `run_experiments.py` will not guess for you, it just skips a script and
-  tells you which file is missing.
-- [test_strategy_Pen-SLM.py:33](Experiments/Test-Set/test_strategy_Pen-SLM.py:33)
-  loads `Qwen/Qwen3-8B` as the base model while every other script in this
-  repo trains/evaluates against `Qwen/Qwen3-14B`. If the downloaded adapter
-  was trained on the 14B base, loading it onto the 8B base will fail (or
-  silently mismatch) — verify which base the adapter expects before trusting
-  the strategy results.
-
-## 10. Run the CTFKnow benchmark against a locally-deployed Pen-SLM
+## 9. Run the CTFKnow benchmark against a locally-deployed Pen-SLM
 
 [Experiments/server.py](Experiments/server.py) loads the base `Qwen/Qwen3-14B`
 model + the `Trained_models/Pen-SLM` LoRA adapter and serves it over FastAPI,
@@ -254,11 +179,4 @@ endpoint defaults `enable_thinking=False` in the chat template specifically
 to avoid this, but verify the adapter actually answers with a bare letter as
 its system prompt asks before trusting the accuracy numbers.
 
-## Notes / gotchas
 
-- `staged_training.py` imports `train_action_qwen3_14B` and
-  `train_strategy_qwen14b` as plain Python modules — both files must sit next
-  to `staged_training.py` with those exact names (no spaces or suffixes).
-- OpenAI calls are rate-limited client-side (`RPM = 15`, `MAX_CONCURRENCY = 8`
-  in both trainer files) — raise these to match your actual OpenAI quota if
-  training is judge-bottlenecked.

@@ -35,9 +35,9 @@ import nest_asyncio
 
 # ─────────────────────────── Config ────────────────────────────────────────
 BASE_MODEL_NAME = "Qwen/Qwen3-14B"
-LORA_PATH       = "./Trained_models/GRPO_Qwen14B_single/checkpoint-final"   # path to saved LoRA adapter
-TEST_CSV        = "./Data/output_test_data.csv"
-OUTPUT_CSV      = "./Results/Action_results/Qwen3_14B_action.csv"
+LORA_PATH       = "./../../Trained_models/Pen-SLM"   # path to saved LoRA adapter
+TEST_CSV        = "./../../Data/test_data.csv"
+OUTPUT_CSV      = "./../Results/Pen-SLM_test-set_action.csv"
 
 OPENAI_MODEL    = "gpt-4o-mini"   # judge model
 RPM             = 15

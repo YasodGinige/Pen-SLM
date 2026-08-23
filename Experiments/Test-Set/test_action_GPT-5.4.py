@@ -38,8 +38,8 @@ import nest_asyncio
 # to which chat-completions-compatible model id you put here.
 GENERATOR_MODEL = "gpt-5.4"
 
-TEST_CSV        = "./Data/output_test_data.csv"
-OUTPUT_CSV      = "./Results/Action_results/GPT-5.4_action.csv"
+TEST_CSV        = "./../../Data/test_data.csv"
+OUTPUT_CSV      = "./../Results/GPT-5.4_action.csv"
 
 JUDGE_MODEL     = "gpt-4o-mini"   # G-EVAL judge model, independent of GENERATOR_MODEL
 RPM             = 15

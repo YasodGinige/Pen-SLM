@@ -12,7 +12,7 @@ from train_action_qwen3_14B import train_action, _ensure_action_dataset, dataset
 TOTAL_STEPS = 4000
 SWITCH_INTERVALS = [800, 400, 100, 50, 10]
 #SWITCH_INTERVALS = [400, 100, 50, 10]
-FINAL_OUTPUT_DIR = "./../Trained_models/staged_final"
+FINAL_OUTPUT_DIR = "./../Trained_models/Pen-SLM"
 lora_adapter_path = "./../Trained_models/staged_final/checkpoint-strategy_800"
 
 

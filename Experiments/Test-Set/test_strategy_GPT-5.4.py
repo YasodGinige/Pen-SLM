@@ -41,10 +41,10 @@ TOP_P = 1.0
 SEED = 3407
 
 # Data paths
-ORIGINAL_CSV = "Data/processed_data_test.csv"
-AUGMENTED_CSV = "Data/test_claude.csv"
-USE_AUGMENTED_TOO = True
-OUTPUT_CSV = "Results/results_GPT-5.4_strategy.csv"
+BASE_MODEL_NAME = "Qwen/Qwen3-14B"
+LORA_PATH       = "./../../Trained_models/Pen-SLM"   # path to saved LoRA adapter
+ORIGINAL_CSV        = "./../../Data/test_data.csv"
+OUTPUT_CSV = "./../Results/results_GPT-5.4_strategy.csv"
 
 # Columns expected in CSVs
 COL_PTT = "PTT"
@@ -259,16 +259,12 @@ def compute_context_similarity(gt: str, gen: str) -> float:
 # -----------------------------
 # Data loading (UNCHANGED)
 # -----------------------------
-df_orig = pd.read_csv(ORIGINAL_CSV).fillna("")
-if USE_AUGMENTED_TOO and os.path.exists(AUGMENTED_CSV):
-    df_aug = pd.read_csv(AUGMENTED_CSV).fillna("")
-    df = pd.concat([df_orig, df_aug], ignore_index=True)
-else:
-    df = df_orig.copy()
+df = pd.read_csv(ORIGINAL_CSV).fillna("")
+
 
 df = df.sample(frac=1, random_state=SEED).reset_index(drop=True)
 
-df = df[[COL_PTT, COL_PREV, COL_PREV_RES, COL_STRATEGY, COL_EXPLANATION]].fillna("").head(8)
+df = df[[COL_PTT, COL_PREV, COL_PREV_RES, COL_STRATEGY, COL_EXPLANATION]].fillna("")
 
 
 # -----------------------------
