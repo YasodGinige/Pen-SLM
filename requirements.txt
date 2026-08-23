@@ -1,0 +1,36 @@
+# Core deep learning stack
+torch>=2.3.0
+transformers>=4.51.0
+accelerate>=0.34.0
+peft>=0.11.0
+bitsandbytes>=0.43.0
+
+# RL / GRPO trainer
+trl>=0.15.0
+datasets>=2.19.0
+
+# Data handling
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Reward-model / API client
+openai>=1.30.0
+httpx>=0.27.0
+nest_asyncio>=1.6.0
+
+# Misc utilities used by the training scripts
+tqdm>=4.66.0
+langid>=1.1.6
+safetensors>=0.4.3
+
+# Model download for evaluation (Experiments/run_experiments.py)
+gdown>=5.1.0
+
+# Local model server (Experiments/server.py)
+fastapi>=0.110.0
+uvicorn>=0.29.0
+pydantic>=2.6.0
+
+# CTFKnow benchmark (Experiments/CTFKnow/run.py imports these unconditionally)
+replicate>=0.25.0
+matplotlib>=3.8.0
