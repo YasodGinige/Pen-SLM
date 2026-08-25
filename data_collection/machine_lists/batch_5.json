@@ -1,0 +1,452 @@
+[
+  {
+    "machine_name": "Cascade",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/07/25/htb-cascade.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Monteverde",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/06/13/htb-monteverde.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Resolute",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/05/30/htb-resolute.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Traceback",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/08/15/htb-traceback.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "ServMon",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/06/20/htb-servmon.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Grandpa",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/05/28/htb-grandpa.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Granny",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/03/06/htb-granny.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Jeeves",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2022/04/14/htb-jeeves.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Jerry",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2018/11/17/htb-jerry.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Lame",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/04/07/htb-lame.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Nibbles",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2018/06/30/htb-nibbles.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Beep",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/02/23/htb-beep.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Shocker",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/05/25/htb-shocker.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Sense",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/03/11/htb-sense.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Popcorn",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/06/23/htb-popcorn.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Conceal",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/05/18/htb-conceal.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Devel",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/03/05/htb-devel.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bastion",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/09/07/htb-bastion.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Blue",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/05/11/htb-blue.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Legacy",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/02/21/htb-legacy.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bounty",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/03/09/htb-bounty.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Arctic",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2020/06/16/htb-arctic.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Optimum",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/03/18/htb-optimum.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Netmon",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2019/06/29/htb-netmon.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Time",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/04/03/htb-time.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mirai",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/03/30/htb-mirai.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bashed",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/05/18/htb-bashed.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Nibbles_Alt",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/10/12/htb-nineveh.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Sneaky",
+    "platform": "HTB",
+    "writeup_urls": [
+      "https://0xdf.gitlab.io/2021/03/02/htb-sneaky.html"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC-2",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/dc-2-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC-5",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/dc-5-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC-6",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/dc-6-lab-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC8",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/dc8-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Raven 2",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/raven-2-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mercy",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/mercy-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "FourAndSix 2",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/fourandsix-2-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Zeus 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/zeus1-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Ted 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/ted-1-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "MinU v2",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/minu-v2-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Beast 2",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/beast-2-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Typhoon 1.02",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/typhoon-1-02-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Broken Gallery",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/broken-gallery-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Replay 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/replay-1-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Kioptrix Level 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/hack-the-kioptrix-level-1-ctf-challenge/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Kioptrix Level 2",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/hack-the-kioptrix-level-2-boot2root-challenge/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Kioptrix Level 3",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/hack-the-kioptrix-level-1-3-boot2root-challenge/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Kioptrix Level 4",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/hack-the-kioptrix-level-1-3-4-boot2root-challenge/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "W34kn3ss 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/w34kn3ss-1-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Moonraker 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/moonraker-1-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "RootThis 1",
+    "platform": "VulnHub",
+    "writeup_urls": [
+      "https://www.hackingarticles.in/rootthis-1-vulnhub-walkthrough/"
+    ],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  }
+]

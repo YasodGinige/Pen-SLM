@@ -1,0 +1,352 @@
+[
+  {
+    "machine_name": "Chemistry",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/03/08/htb-chemistry.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Guardian",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/28/htb-guardian.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bruno",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/24/htb-bruno.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Giveback",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/21/htb-giveback.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Soulmate",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/14/htb-soulmate.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Slonik",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/12/htb-slonik.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Breach",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/10/htb-breach.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Signed",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/07/htb-signed.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bamboo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/03/htb-bamboo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "CodeTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/31/htb-codetwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "JobTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/27/htb-jobtwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Job",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/26/htb-job.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Imagery",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/24/htb-imagery.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HackNet",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/17/htb-hacknet.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Previous",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/10/htb-previous.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "WhiteRabbit",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/12/13/htb-whiterabbit.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Editor",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/12/06/htb-editor.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Support",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/12/17/htb-support.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Scrambled",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/10/01/htb-scrambled.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Scanned",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/09/10/htb-scanned.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Developer",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/01/15/htb-developer.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Static",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/12/18/htb-static.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Schooled",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/09/11/htb-schooled.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Ready",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/05/15/htb-ready.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Laboratory",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/04/17/htb-laboratory.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Worker",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/01/30/htb-worker.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "RopeTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/01/16/htb-ropetwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Fuse",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/10/31/htb-fuse.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Remote",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/09/05/htb-remote.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Magic",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/08/22/htb-magic.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Sauna",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/07/18/htb-sauna.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Book",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/07/11/htb-book.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Nest",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/06/06/htb-nest.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Forest",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/03/21/htb-forest.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bitlab",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/01/11/htb-bitlab.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Heist",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/11/30/htb-heist.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Writeup",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/10/12/htb-writeup.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Helpline",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/08/17/htb-helpline.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Fortune",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/08/03/htb-fortune.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Hackback",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/07/06/htb-hackback.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Help",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/06/08/htb-help.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Giddy",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2019/02/16/htb-giddy.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Serial 1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/serial-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Thales1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/thales1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "VulnUni 1.0.1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/vulnuni-1-0-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "UA Literally Vulnerable",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ua-literally-vulnerable-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Chronos",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/chronos-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "digital world.local Vengeance",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/digital-world-local-vengeance-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Tempus Fugit 3",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/tempus-fugit-3-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mercury",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/mercury-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  }
+]

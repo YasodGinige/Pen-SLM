@@ -1,0 +1,352 @@
+[
+  {
+    "machine_name": "Giveback",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/21/htb-giveback.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Soulmate",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/14/htb-soulmate.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Slonik",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/12/htb-slonik.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Breach",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/10/htb-breach.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Signed",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/07/htb-signed.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bamboo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/02/03/htb-bamboo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "CodeTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/31/htb-codetwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "JobTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/27/htb-jobtwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Job",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/26/htb-job.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Imagery",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/24/htb-imagery.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HackNet",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/17/htb-hacknet.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Previous",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2026/01/10/htb-previous.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "WhiteRabbit",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/12/13/htb-whiterabbit.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Editor",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/12/06/htb-editor.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Era",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/11/29/htb-era.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mirage",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/11/22/htb-mirage.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Outbound",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/11/15/htb-outbound.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "RustyKey",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/11/08/htb-rustykey.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Dump",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/11/04/htb-dump.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Voleur",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/11/01/htb-voleur.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Store",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/10/30/htb-store.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Artificial",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/10/25/htb-artificial.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DarkCorp",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/10/18/htb-darkcorp.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "TombWatcher",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/10/11/htb-tombwatcher.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Watcher",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/10/09/htb-watcher.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Prime",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/prime-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Serial",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/serial-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Insanity",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/insanity-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "GrimTheRipper",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/grimtheripper-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "CyberSploit",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/cybersploit-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "VulnUni",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/vulnuni-1-0-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mercury",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/mercury-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Kuya",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/vulnhub-kuya-1-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Relevant",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/relevant-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA Natraj",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-natraj-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "UA Literally Vulnerable",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ua-literally-vulnerable-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Development",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/development-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Thales1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/thales1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "digital world.local FALL",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/digital-world-local-fall-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Hackable 3",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hackable-3-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "digital world.local Vengeance",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/digital-world-local-vengeance-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Planning",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@ruruuu/hackthebox-planning-writeup-3a1d6d597cca"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "NanoCorp",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@ramyvic12/htb-nanocorp-writeup-b39eae6b2dd8"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Editor_Medium",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@subhadipsardar866/hack-the-box-editor-machine-walk-through-42ae0a9e1174"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Editorial",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@firstprof.com/hackthebox-writeup-editorial-46df30be745f"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Crafty",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@jamesjarviscyber/crafty-hackthebox-walkthrough-technical-management-summaries-b9ff472f9d12"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Evilcups",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@pk2212/htb-evilcups-writeup-walkthrough-966050a1b551"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Fluffy",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@ivandano77/fluffy-writeup-hackthebox-easy-machine-f5d460be3312"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Imagery_Medium",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@ko_djelloul/hack-the-box-imagery-a-complete-walkthrough-ec6fdb5bd814"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Office",
+    "platform": "HTB",
+    "writeup_urls": ["https://medium.com/@frankkyazze/hackthebox-office-hard-writeup-and-experiences-09f25d4424d6"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  }
+]

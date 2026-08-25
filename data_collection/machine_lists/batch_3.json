@@ -1,0 +1,660 @@
+[
+  {
+    "machine_name": "Pandora",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/05/21/htb-pandora.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Devzat",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/03/12/htb-devzat.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Acute",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/07/16/htb-acute.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Phoenix",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/06/25/htb-phoenix.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Sea",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/12/21/htb-sea.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Strutted",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2025/01/28/htb-strutted.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mist",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/10/26/htb-mist.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC-1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/dc-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC-3",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/dc-3-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "DC-4",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/dc-4-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Pilgrimage",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/11/25/htb-pilgrimage.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Keeper",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/02/10/htb-keeper.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Topology",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/11/04/htb-topology.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Zipping",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/01/13/htb-zipping.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Mission-Pumpkin PumpkinFestival",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/mission-pumpkin-v1-0-pumpkinfestival-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Gemini inc 2",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-the-gemini-inc2-ctf-challenge/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Knife",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/08/28/htb-knife.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Cap",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/10/02/htb-cap.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Love",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/08/07/htb-love.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Pit",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/09/25/htb-pit.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Explore",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/10/30/htb-explore.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Soccer",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/06/10/htb-soccer.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Precious",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/05/20/htb-precious.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Inject",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/07/08/htb-inject.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Escape",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/06/17/htb-escape.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Narak",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-narak-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Infinity Stones",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-infinity-stones-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "WinterMute 1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-the-wintermute-1-ctf-challenge/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Wordy",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-wordy-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "BTRSys 2.1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-btrsys-v2-1-vm-boot2root-challenge/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Blackfield",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/10/03/htb-blackfield.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Tenet",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/06/12/htb-tenet.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Armageddon",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/07/24/htb-armageddon.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Compromised",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/01/23/htb-compromised.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Dhanush",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-dhanush-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Chakravyuh",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-chakravyuh-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Rudra",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-rudra-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "TheNotebook",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/07/31/htb-thenotebook.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "OpenKeyS",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/12/12/htb-openkeys.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Ophiuchi",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/07/03/htb-ophiuchi.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Spectra",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/06/26/htb-spectra.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Trick",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/10/29/htb-trick.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Shared",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/11/12/htb-shared.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Return",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/05/05/htb-return.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Omni",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/01/09/htb-omni.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "BoardLight",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/09/28/htb-boardlight.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bizness",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/05/25/htb-bizness.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "MonitorsTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/09/02/htb-monitorstwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Vedas",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-vedas-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Chanakya",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-chanakya-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-ISRO",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-isro-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Joker",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-joker-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "WifineticTwo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/07/27/htb-wifinetictwo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "CozyHosting",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/03/02/htb-cozyhosting.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "PC",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/10/07/htb-pc.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "ScriptKiddie",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/06/05/htb-scriptkiddie.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Validation",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/09/14/htb-validation.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Pikaboo",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/12/04/htb-pikaboo.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Timing",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/06/04/htb-timing.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Breach 1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.vulnhub.com/entry/breach-1,152/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "StreamIO",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/09/17/htb-streamio.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Meta",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/06/11/htb-meta.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Epsilon",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/03/10/htb-epsilon.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Backdoor",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/04/23/htb-backdoor.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Paper",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/06/18/htb-paper.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Codify",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/04/06/htb-codify.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Appsanity",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/03/09/htb-appsanity.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Surveillance",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/04/20/htb-surveillance.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "RickdiculouslyEasy",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-rickdiculouslyeasy-vm-ctf-challenge/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Tabby",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/11/07/htb-tabby.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Admirer",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/09/26/htb-admirer.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Buff",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/11/21/htb-buff.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Blunder",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2020/10/17/htb-blunder.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Djinn 1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/djinn1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Geisha 1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/geisha1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "SolarLab",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/09/21/htb-solarlab.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Sau",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/01/06/htb-sau.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Perfection",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/07/06/htb-perfection.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Analytics",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2024/03/23/htb-analytics.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "HA-Naruto",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/ha-naruto-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Bulldog",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-bulldog-vm-boot2root-challenge/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Delivery",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/05/22/htb-delivery.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "BountyHunter",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2021/11/20/htb-bountyhunter.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Previse",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/01/08/htb-previse.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Driver",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/02/26/htb-driver.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Forge",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/01/22/htb-forge.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Tomato 1",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/tomato-1-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "LAMPSecurity CTF6",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/lampsecurity-ctf6-vulnhub-walkthrough/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "LAMPSecurity CTF7",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-the-lampsecurity-ctf-7-ctf-challenge/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "LAMPSecurity CTF8",
+    "platform": "VulnHub",
+    "writeup_urls": ["https://www.hackingarticles.in/hack-the-lampsecurity-ctf8-ctf-challenge-2/"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "CarpeDiem",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/12/03/htb-carpediem.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Timelapse",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/08/20/htb-timelapse.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Horizontall",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2022/02/05/htb-horizontall.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  },
+  {
+    "machine_name": "Ambassador",
+    "platform": "HTB",
+    "writeup_urls": ["https://0xdf.gitlab.io/2023/01/28/htb-ambassador.html"],
+    "file_format": "HTML/WebP",
+    "completeness_status": "complete"
+  }
+]
