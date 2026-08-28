@@ -558,13 +558,19 @@ def train_action(current_model, dataset_part=None, output_dir="./../Trained_mode
         return ex
 
     ds_final = ds_work.map(_truncate, batched=False)
+
+    # trl>=1.0 / transformers>=5.0 dropped warmup_ratio from GRPOConfig (only
+    # warmup_steps remains); compute the equivalent absolute step count so this
+    # works whether warmup_ratio is available or not.
+    warmup_steps = max(1, int(0.1 * max_steps)) if max_steps else 0
+
     training_args = GRPOConfig(
         temperature                 = 0.7,
         learning_rate               = 5e-5,
         weight_decay                = 0.01,
         bf16                        = torch.cuda.is_available() and torch.cuda.is_bf16_supported(),
         fp16                        = torch.cuda.is_available() and not (torch.cuda.is_available() and torch.cuda.is_bf16_supported()),
-        warmup_ratio                = 0.1,
+        warmup_steps                = warmup_steps,
         lr_scheduler_type           = "linear",
         optim                       = "adamw_8bit",
         logging_steps               = 1,

@@ -436,11 +436,16 @@ def train_strategy(current_model, dataset_part=None, output_dir="./../Trained_mo
     ds_single = ds_work.map(truncate_and_add_len, batched=False)
     max_seen = max(ds_single["prompt_len"])
 
+    # trl>=1.0 / transformers>=5.0 dropped warmup_ratio from GRPOConfig (only
+    # warmup_steps remains); compute the equivalent absolute step count so this
+    # works whether warmup_ratio is available or not.
+    warmup_steps = max(1, int(0.1 * max_steps)) if max_steps else 0
+
     training_args = GRPOConfig(
         temperature = 0.7,
         learning_rate = 5e-5,
         weight_decay = 0.01,
-        warmup_ratio = 0.1,
+        warmup_steps = warmup_steps,
         lr_scheduler_type = "linear",
         optim = "adamw_8bit",
         logging_steps = 1,

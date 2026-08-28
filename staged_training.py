@@ -13,8 +13,7 @@ TOTAL_STEPS = 4000
 SWITCH_INTERVALS = [800, 400, 100, 50, 10]
 #SWITCH_INTERVALS = [400, 100, 50, 10]
 FINAL_OUTPUT_DIR = "./../Trained_models/Pen-SLM"
-lora_adapter_path = "./../Trained_models/staged_final/checkpoint-strategy_800"
-
+lora_adapter_path = None
 
 def build_shared_lora_model(lora_adapter_path, model_name: str = "Qwen/Qwen3-14B", lora_rank: int = 8):
     """Create one shared base Qwen3-14B and attach a single LoRA adapter used by all episodes."""
