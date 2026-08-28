@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
 Helper utilities for manual dataset generation.
-Provides the shared schema, allowed steps, and CSV append helpers
-used by machine-specific generator scripts in examples/.
+Provides the shared schema, the approved MCP server list, and CSV append
+helpers used by machine-specific generator scripts in examples/.
 """
 
 import csv
 import json
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 CSV_HEADERS = [
     "Machine",
@@ -17,22 +17,19 @@ CSV_HEADERS = [
     "Previous step result",
     "New strategy",
     "Strategy explanation",
-    "New step",
-    "Step explanation",
-    "MCP_tasks"
+    "Action",
+    "MCP servers",
+    "MCP server usage",
+    "Results"
 ]
 
-ALLOWED_STEPS = [
-    "Do a google search for more information",
-    "Enumerate further on the X service to find software versions, hidden directories and file",
-    "Explore the suspicious files, commands and create a summary of the findings",
-    "Further Enumerate the website - hidden directories, links and software",
-    "Enumerate the domain",
-    "Exploit the selected exploitations",
-    "Analyze the outcomes of the previous step and find an attack path",
-    "Ask for human assistant",
-    "Explore the source code for vulnerabilities",
-    "End task and ask permission to generate the report"
+# The dataset's one real closed-set restriction: "MCP servers" may only name
+# tools from this list of 14. ("Previous step" and "Action" are free-form
+# narrative/plans -- there is no equivalent closed set of allowed steps.)
+APPROVED_SERVERS = [
+    "Nmap", "Metasploit", "Netcat", "Dirbuster", "SQLmap", "SMB Client",
+    "Hydra", "Burp Suite", "Hashcat", "Google Search", "File System Analysis",
+    "ExploitDB", "Interactive CLI", "Web Page Analysis",
 ]
 
 
@@ -44,16 +41,22 @@ def create_csv_row(
     previous_step_result: str = "",
     new_strategy: str = "",
     strategy_explanation: str = "",
-    new_step: str = "",
-    step_explanation: str = "",
-    mcp_tasks: str = ""
+    action: str = "",
+    mcp_servers: Optional[List[str]] = None,
+    mcp_server_usage: str = "",
+    results: str = ""
 ) -> Dict[str, str]:
-    """Create a properly formatted CSV row"""
+    """Create a properly formatted CSV row.
 
-    if new_step and new_step not in ALLOWED_STEPS:
-        print(f"WARNING: '{new_step}' is not in allowed steps!")
-        for step in ALLOWED_STEPS:
-            print(f"  - {step}")
+    `mcp_servers` must only contain names from APPROVED_SERVERS -- that's the
+    dataset's one closed-set restriction, so it's validated here.
+    """
+    mcp_servers = mcp_servers or []
+    invalid = [s for s in mcp_servers if s not in APPROVED_SERVERS]
+    if invalid:
+        print(f"WARNING: {invalid} not in the approved MCP servers!")
+        for server in APPROVED_SERVERS:
+            print(f"  - {server}")
 
     return {
         "Machine": machine,
@@ -63,9 +66,10 @@ def create_csv_row(
         "Previous step result": previous_step_result,
         "New strategy": new_strategy,
         "Strategy explanation": strategy_explanation,
-        "New step": new_step,
-        "Step explanation": step_explanation,
-        "MCP_tasks": mcp_tasks
+        "Action": action,
+        "MCP servers": json.dumps(mcp_servers),
+        "MCP server usage": mcp_server_usage,
+        "Results": results
     }
 
 
@@ -76,6 +80,12 @@ def append_rows_to_csv(filename: str, rows: List[Dict[str, str]]):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
+            if reader.fieldnames and reader.fieldnames != CSV_HEADERS:
+                raise ValueError(
+                    f"{filename} uses a different column schema {reader.fieldnames} than the "
+                    f"current schema {CSV_HEADERS}. Move or rename the existing file before "
+                    "appending new rows so old- and new-schema rows don't get mixed together."
+                )
             existing_rows = list(reader)
     except FileNotFoundError:
         pass
@@ -112,20 +122,10 @@ Notes:
 """)
 
 
-def print_allowed_steps():
-    print("\nALLOWED STEPS (use exact strings):")
-    print("=" * 60)
-    for i, step in enumerate(ALLOWED_STEPS, 1):
-        print(f"{i}. {step}")
-    print("=" * 60)
-
-
 def print_mcp_servers():
-    print("\nMCP SERVERS:")
+    print("\nAPPROVED MCP SERVERS (closed set of 14 -- 'MCP servers' must only use these):")
     print("=" * 60)
-    for server in ["Nmap", "Metasploit", "Netcat", "Dirbuster", "SQLmap",
-                   "SMB client", "Hydra", "John-the-ripper", "Google search",
-                   "Interactive CLI", "Web page interaction"]:
+    for server in APPROVED_SERVERS:
         print(f"  - {server}")
     print("=" * 60)
 
@@ -133,7 +133,6 @@ def print_mcp_servers():
 if __name__ == "__main__":
     print("Dataset Generator Helper")
     print("=" * 60)
-    print_allowed_steps()
     print_mcp_servers()
     print_ptt_template()
     print("\nTo generate rows for a machine, import create_csv_row and append_rows_to_csv.")

@@ -19,37 +19,25 @@ This pipeline builds a penetration-testing strategy dataset from publicly availa
 - Each machine must be unique across all batches.
 - Machine lists are stored in `machine_lists/batch_N.json`.
 
-## CSV Schema (Strict — 10 Columns)
+## CSV Schema (Strict — 11 Columns)
 
 | Column | Description |
 |--------|-------------|
 | Machine | Machine name |
 | PTT | Current full Penetration Testing Tree |
 | Previous strategy | Strategy from the prior iteration (empty for first row) |
-| Previous step | Action taken in the prior iteration (empty for first row) |
+| Previous step | Free-form narrative describing the step taken in the prior iteration and why (empty for first row) — there is no fixed list of steps to choose from |
 | Previous step result | Verbatim tool outputs and findings only — no conclusions |
 | New strategy | Strategically reasoned next approach |
 | Strategy explanation | Justification grounded strictly in previous results and PTT |
-| New step | One allowed step from the predefined list below |
-| Step explanation | Why this step implements the new strategy |
-| MCP_tasks | Tool-level actions with specific parameters (not generic tool names) |
+| Action | Concrete, numbered operational plan (typically 4-6 steps) for carrying out the new strategy |
+| MCP servers | JSON array of the MCP server(s) used to execute the action — must only use names from the approved list below |
+| MCP server usage | One block per server in MCP servers: what it's used for, specific parameters/commands, and expected results |
+| Results | Short (2-4 sentence) natural-language summary of the outcome of executing the action |
 
 Each write-up iteration produces exactly one CSV row. No inferred steps, hallucinations, or skipped reasoning are allowed.
 
-## Allowed Steps (Closed Set — use exact strings)
-
-1. `Do a google search for more information`
-2. `Enumerate further on the X service to find software versions, hidden directories and file`
-3. `Explore the suspicious files, commands and create a summary of the findings`
-4. `Further Enumerate the website - hidden directories, links and software`
-5. `Enumerate the domain`
-6. `Exploit the selected exploitations`
-7. `Analyze the outcomes of the previous step and find an attack path`
-8. `Ask for human assistant`
-9. `Explore the source code for vulnerabilities`
-10. `End task and ask permission to generate the report`
-
-No free-form steps are allowed.
+`Previous step` and `Action` are free-form prose/plans — they are **not** picked from a predefined list of allowed steps. The only closed-set restriction in this dataset is the approved MCP server list below.
 
 ## Penetration Testing Tree (PTT) Rules
 
@@ -60,11 +48,11 @@ No free-form steps are allowed.
 - New tasks are only added when justified by concrete findings
 - Do not create tasks for unknown or unconfirmed services
 
-## MCP Servers (Allowed Tools)
+## MCP Servers (Approved List — Closed Set of 14)
 
-Nmap, Metasploit, Netcat, Dirbuster, SQLmap, SMB client, Hydra, John-the-ripper, Google search, Interactive CLI, Web page interaction.
+Nmap, Metasploit, Netcat, Dirbuster, SQLmap, SMB Client, Hydra, Burp Suite, Hashcat, Google Search, File System Analysis, ExploitDB, Interactive CLI, Web Page Analysis.
 
-The `MCP_tasks` field must state what each tool is used for with specific parameters — not just list the tool name.
+`MCP servers` must only contain names from this exact list (case-sensitive). `MCP server usage` must state what each selected tool is used for with specific parameters — not just list the tool name — with one section per server, in the same order as `MCP servers`.
 
 ## Reasoning Model
 
@@ -80,7 +68,7 @@ Each iteration captures three reasoning roles:
 
 - No hallucinated steps or inferred reasoning
 - No merging of multiple steps into one iteration
-- No deviation from the CSV schema or allowed step list
+- No deviation from the CSV schema
+- `MCP servers` must only use names from the approved list of 14 — no other tool names, invented or otherwise
 - The PTT is the single source of truth
 - Every strategy must be justified by prior results
-- Always end with `End task and ask permission to generate the report`

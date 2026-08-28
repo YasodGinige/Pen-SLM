@@ -86,9 +86,16 @@ For evaluation and local inference, see [`Experiments/README.md`](Experiments/RE
 
 ## 8. Run evaluation experiments
 
-[Experiments/run_experiments.py](Experiments/run_experiments.py) fetches the
-trained `Pen-SLM` LoRA adapter into `Trained_models/Pen-SLM` and then runs both
-scripts in [Experiments/Test-Set](Experiments/Test-Set):
+The trained `Pen-SLM` LoRA adapter is checked into this repo as a Git LFS
+archive at `Trained_models/Pen-SLM-LoRA.zip`. Pull it before your first run:
+
+```bash
+git lfs pull
+```
+
+[Experiments/run_experiments.py](Experiments/run_experiments.py) extracts that
+archive into `Trained_models/Pen-SLM` (if it isn't already extracted) and then
+runs both scripts in [Experiments/Test-Set](Experiments/Test-Set):
 [test_strategy_Pen-SLM.py](Experiments/Test-Set/test_strategy_Pen-SLM.py) and
 [test_action_Pen-SLM.py](Experiments/Test-Set/test_action_Pen-SLM.py).
 
@@ -99,8 +106,8 @@ be launched from the repo root, not a subdirectory):
 python3 Experiments/run_experiments.py
 ```
 
-- `--force-download` re-downloads the model even if `Trained_models/Pen-SLM`
-  already looks populated.
+- `--force-extract` re-extracts the model from the zip even if
+  `Trained_models/Pen-SLM` already looks populated.
 - `--only strategy` / `--only action` runs just one of the two eval scripts.
 
 Requires `OPENAI_API_KEY` to be set (both eval scripts use `gpt-4o` as an
@@ -130,7 +137,7 @@ python3 Experiments/run_experiments.py --only ctfknow \
   --ctfknow-questions Experiments/CTFKnow/dataset/question_list.json
 ```
 
-This will: ensure `Trained_models/Pen-SLM` is downloaded, launch
+This will: ensure `Trained_models/Pen-SLM` is extracted, launch
 `Experiments/server.py` in the background (or reuse one already running and
 healthy on port 8083), poll `/health` until the model finishes loading
 (`--server-timeout`, default 1800s), run

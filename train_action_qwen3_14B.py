@@ -538,7 +538,7 @@ def _resolve_dataset_portion(dataset_obj, portion):
     return dataset_obj
 
 
-def train_action(current_model, dataset_part=None, output_dir="./../Trained_models/GRPO_Qwen14B_single", max_steps=None, tokenizer_obj=None):
+def train_action(current_model, dataset_part=None, output_dir="./../Trained_models/staged_final", max_steps=None, tokenizer_obj=None):
     if current_model is None or tokenizer_obj is None:
         raise ValueError("train_action requires a pre-built model and tokenizer_obj (build them once in staged_training.py).")
     model_to_use = current_model
@@ -600,7 +600,7 @@ class ActionTrainer:
     def __init__(self, model=None):
         self.model = model
 
-    def train(self, current_model=None, dataset_part=None, output_dir="./../Trained_models/GRPO_Qwen14B_single", tokenizer_obj=None):
+    def train(self, current_model=None, dataset_part=None, output_dir="./../Trained_models/staged_final", tokenizer_obj=None):
         model_to_use = current_model if current_model is not None else self.model
         if model_to_use is None or tokenizer_obj is None:
             raise ValueError("ActionTrainer.train requires a pre-built model and tokenizer_obj.")

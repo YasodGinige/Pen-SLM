@@ -7,6 +7,22 @@ the first place, see the [repo-root README](../README.md).
 Set up the environment exactly as in the root README first (venv +
 `pip install -r ../requirements.txt` + `export OPENAI_API_KEY=...`).
 
+## Model setup
+
+The trained `Pen-SLM` LoRA adapter is checked into this repo as a Git LFS
+archive at `Trained_models/Pen-SLM-LoRA.zip` (no external download needed).
+Pull it once before your first run:
+
+```bash
+git lfs pull
+```
+
+`run_experiments.py` (see below) extracts the zip into `Trained_models/Pen-SLM`
+automatically the first time it's needed; you don't need to unzip it by hand.
+If `git lfs pull` hasn't been run, the zip on disk is just a small LFS pointer
+file, not the real archive -- `run_experiments.py` detects this and tells you
+to run `git lfs pull` rather than failing with a confusing zip error.
+
 ## Contents
 
 - [Test-Set/](Test-Set/) — `test_strategy_Pen-SLM.py` and `test_action_Pen-SLM.py`,
@@ -18,7 +34,8 @@ Set up the environment exactly as in the root README first (venv +
   ([paper](CTFKnow/paper.pdf)), vendored in and wired up to run against a
   locally-deployed Pen-SLM.
 - [run_experiments.py](run_experiments.py) — orchestrates all of the above:
-  downloads the model if missing, then runs the eval(s) you ask for.
+  extracts the model from the LFS zip if missing, then runs the eval(s) you
+  ask for.
 
 ## Hardware requirement
 
@@ -64,8 +81,8 @@ All commands below assume you're in the repo root with the venv active.
 python3 Experiments/run_experiments.py --only strategy   # or --only action, or --only all
 ```
 
-Downloads `Trained_models/Pen-SLM` if missing, then runs the requested
-Test-Set script(s) directly against the base model (no server involved).
+Extracts `Trained_models/Pen-SLM` from the LFS zip if missing, then runs the
+requested Test-Set script(s) directly against the base model (no server involved).
 See the root README's "Run evaluation experiments" section for the data-file
 caveats (some CSVs these scripts expect aren't included in this repo).
 

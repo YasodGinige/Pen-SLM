@@ -1,0 +1,10 @@
+# OS
+.DS_Store
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Locally extracted model -- Trained_models/Pen-SLM-LoRA.zip (Git LFS) is the
+# tracked source of truth; run_experiments.py extracts it here on demand.
+Trained_models/Pen-SLM/

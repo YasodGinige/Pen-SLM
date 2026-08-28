@@ -23,33 +23,9 @@ import time
 from anthropic import Anthropic
 import os
 
+from dataset_generator_helper import CSV_HEADERS, APPROVED_SERVERS
+
 client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-
-ALLOWED_STEPS = [
-    "Do a google search for more information",
-    "Enumerate further on the X service to find software versions, hidden directories and file",
-    "Explore the suspicious files, commands and create a summary of the findings",
-    "Further Enumerate the website - hidden directories, links and software",
-    "Enumerate the domain",
-    "Exploit the selected exploitations",
-    "Analyze the outcomes of the previous step and find an attack path",
-    "Ask for human assistant",
-    "Explore the source code for vulnerabilities",
-    "End task and ask permission to generate the report"
-]
-
-CSV_HEADERS = [
-    "Machine",
-    "PTT",
-    "Previous strategy",
-    "Previous step",
-    "Previous step result",
-    "New strategy",
-    "Strategy explanation",
-    "New step",
-    "Step explanation",
-    "MCP_tasks"
-]
 
 
 def load_paired_reference_examples(n_machines: int = 2) -> str:
@@ -65,6 +41,14 @@ def load_paired_reference_examples(n_machines: int = 2) -> str:
         return ""
 
     df = pd.read_csv(ref_csv)
+    if list(df.columns) != CSV_HEADERS:
+        print(
+            f"Warning: {ref_csv} columns {list(df.columns)} don't match the current "
+            f"schema {CSV_HEADERS} -- skipping stale few-shot reference examples "
+            "(regenerate reference/sample_dataset.csv against the current schema)."
+        )
+        return ""
+
     machines = df["Machine"].unique()[:n_machines]
     blocks = []
 
@@ -187,6 +171,8 @@ Use these to infer the exact format, depth, field content, and PTT style expecte
 ---
 """
 
+    approved_servers_block = "\n".join(f'- "{s}"' for s in APPROVED_SERVERS)
+
     prompt = f"""You are parsing a complete penetration testing writeup for machine: {machine_name}
 
 Your task: Extract EVERY sequential iteration of the penetration test as separate steps.
@@ -198,13 +184,16 @@ WRITEUP CONTENT:
 {writeup_content}
 
 {reference_block}For EACH iteration, extract:
-1. What action was taken (map to one of the allowed steps below)
-2. What results were obtained (tool outputs, findings - verbatim)
-3. What strategy/reasoning led to this action
-4. What MCP tools were used
+1. previous_step: a free-form narrative description of the step taken in the PRIOR iteration and the reasoning behind it (there is no fixed list of steps -- write natural prose, not a canned label)
+2. previous_step_result: the results obtained from that step (tool outputs, findings - verbatim where possible)
+3. new_strategy / strategy_explanation: the next high-level strategy and reasoning grounded in the PTT and previous_step_result
+4. action: a concrete, numbered operational plan (4-6 steps) for carrying out new_strategy
+5. mcp_servers: the MCP server(s) used to execute the action
+6. mcp_server_usage: for each server in mcp_servers, a short block describing what it's used for, how (specific parameters/commands), and what to expect
+7. results: a short (2-4 sentence) natural-language summary of the outcome of executing the action
 
-ALLOWED STEPS (you MUST use these exact strings):
-{chr(10).join(f'- "{step}"' for step in ALLOWED_STEPS)}
+APPROVED MCP SERVERS -- this is a closed set. mcp_servers must ONLY use these exact names, nothing else:
+{approved_servers_block}
 
 OUTPUT FORMAT (JSON array):
 [
@@ -212,20 +201,22 @@ OUTPUT FORMAT (JSON array):
     "previous_strategy": "",
     "previous_step": "",
     "previous_step_result": "",
-    "new_strategy": "Perform initial reconnaissance to identify open ports and services",
-    "strategy_explanation": "Starting with network reconnaissance as per standard penetration testing methodology",
-    "new_step": "Enumerate further on the X service to find software versions, hidden directories and file",
-    "step_explanation": "Using nmap to scan all ports and identify running services",
-    "mcp_tasks": "Nmap: Full port scan with service detection (-sV -sC -p-)"
+    "new_strategy": "Perform initial reconnaissance to identify open ports and running services",
+    "strategy_explanation": "Beginning penetration test with standard network reconnaissance. Need to discover what services are exposed on the target system to identify potential attack vectors.",
+    "action": "1. Execute a comprehensive Nmap scan against the target machine to identify all open TCP and UDP ports.\\n2. Perform service version detection and OS fingerprinting on all discovered open ports.\\n3. Run Nmap NSE default scripts against identified services to detect misconfigurations and common vulnerabilities.\\n4. Document the attack surface based on identified services.",
+    "mcp_servers": ["Nmap"],
+    "mcp_server_usage": "Nmap:\\n* Perform a full TCP SYN scan with service version detection, OS fingerprinting, and default NSE scripts against the target IP.\\n* Use flags: nmap -sS -sV -sC -O -p- -T4 <target_IP>.\\n* Expect: list of open TCP ports, identified service names/versions, OS detection results, and NSE script findings.",
+    "results": "A comprehensive Nmap scan with version detection and NSE was run and revealed the open services. Findings inform the next enumeration step."
   }},
   ...
 ]
 
 CRITICAL:
 - Extract ALL steps from the writeup sequentially
-- Use exact strings from ALLOWED STEPS
+- previous_step and action are free-form prose/plans -- do not force them into canned phrases
+- mcp_servers must only contain names from the APPROVED MCP SERVERS list above
+- mcp_server_usage must have exactly one section per server listed in mcp_servers, using the same server names, in the same order
 - Preserve verbatim tool outputs in previous_step_result
-- End with "End task and ask permission to generate the report"
 - No hallucinations or invented steps
 
 Generate the JSON array now:
@@ -332,6 +323,17 @@ def process_machine(machine_data: Dict[str, Any]) -> List[Dict[str, str]]:
                     step.get('new_strategy', '')
                 )
 
+        raw_servers = step.get('mcp_servers', []) or []
+        if isinstance(raw_servers, str):
+            try:
+                raw_servers = json.loads(raw_servers)
+            except json.JSONDecodeError:
+                raw_servers = [s.strip() for s in raw_servers.split(",") if s.strip()]
+        mcp_servers = [s for s in raw_servers if s in APPROVED_SERVERS]
+        if len(mcp_servers) != len(raw_servers):
+            dropped = [s for s in raw_servers if s not in APPROVED_SERVERS]
+            print(f"Warning: dropping non-approved MCP server(s) {dropped} for {machine_name} step {i+1}")
+
         row = {
             "Machine": machine_name,
             "PTT": current_ptt,
@@ -340,9 +342,10 @@ def process_machine(machine_data: Dict[str, Any]) -> List[Dict[str, str]]:
             "Previous step result": step.get('previous_step_result', ''),
             "New strategy": step.get('new_strategy', ''),
             "Strategy explanation": step.get('strategy_explanation', ''),
-            "New step": step.get('new_step', ''),
-            "Step explanation": step.get('step_explanation', ''),
-            "MCP_tasks": step.get('mcp_tasks', '')
+            "Action": step.get('action', ''),
+            "MCP servers": json.dumps(mcp_servers),
+            "MCP server usage": step.get('mcp_server_usage', ''),
+            "Results": step.get('results', '')
         }
         csv_rows.append(row)
 
