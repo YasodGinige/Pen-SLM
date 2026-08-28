@@ -10,9 +10,9 @@ The two tasks are trained alternately using [`staged_training.py`](staged_traini
 ## Main Contributions
 
 In this work, we propose a new reasoning dataset with a GRPO based fine-tuning technique to fine-tune an SLM for pentesting tasks. We provide the dataset, fine-tuning code, and the fine-tuned model in the following directories.
-    - Dataset: ./Data/
-    -fine-tuning code: staged_training.py
-    -fine-tuned model: ./Trained_models/
+- Dataset: ./Data/
+- fine-tuning code: staged_training.py
+- fine-tuned model: ./Trained_models/
 
 ## Requirements
 
