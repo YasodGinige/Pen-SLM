@@ -1,342 +1,112 @@
-# CTFKnow: Measuring and Augmenting Large Language Models for Solving Capture-the-Flag Challenges
+# CTFKnow (Pen-SLM integration)
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](paper.pdf)
+[CTFKnow](paper.pdf) is a third-party CTF-knowledge multiple-choice benchmark,
+vendored into this repo. This README covers only what's needed to set it up
+and run it against **Pen-SLM** (this repo's locally-deployed fine-tuned model)
+and against a **commercial LLM** such as `gpt-5-mini` (via the OpenAI API), for
+comparison. For CTFKnow's own general documentation see [README-new.md](README-new.md).
 
-## 📖 Overview
+## 1. Prerequisites
 
-CTFKnow is a comprehensive research framework designed to measure and enhance Large Language Models (LLMs) capabilities in solving Capture-the-Flag (CTF) cybersecurity challenges. This project provides a complete pipeline for automated data collection, knowledge extraction, question generation, and model evaluation in the cybersecurity domain.
+- From the repo root: venv + `pip install -r ../../requirements.txt` (installs
+  `openai`, `replicate`, `matplotlib`, and everything else `run.py` imports).
+- `export OPENAI_API_KEY=...` — **required even when evaluating Pen-SLM.**
+  `run.py` constructs an OpenAI client unconditionally at import time
+  (`client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])`), and the `K`/`Q`
+  steps below call the OpenAI API directly.
 
-### 🎯 Key Features
+## 2. Get a graded question-list file
 
-- **Automated CTF Write-up Collection**: Scrapes high-quality write-ups from CTFtime.org
-- **Intelligent Knowledge Extraction**: Uses LLMs to extract universal cybersecurity knowledge from write-ups
-- **Automated Question Generation**: Creates both multiple-choice and open-ended questions
-- **Comprehensive Model Evaluation**: Evaluates LLM performance on cybersecurity tasks
-- **Vulnerable Code Dataset**: Builds datasets with vulnerable code snippets and exploitation scenarios
-- **Multi-Model Support**: Compatible with various LLM providers (OpenAI, Replicate, etc.)
-
-## 🏗️ Architecture
-
-```
-CTFKnow/
-├── scraper/                 # Data collection module
-│   ├── scraper.py          # Main scraper orchestration
-│   ├── ctft/               # CTFtime.org specific scrapers
-│   │   ├── get_writeup_url.py
-│   │   ├── ctftime_scrape.py
-│   │   └── souper.py
-│   └── all.md              # Competition list
-├── dataset/                # Data storage
-│   ├── raw/                # Raw write-up files
-│   ├── list.json           # Challenge metadata
-│   ├── list_knwoledge_question.json
-│   └── list_knwoledge_key.json
-├── run.py                  # Main processing pipeline
-├── prompts.py              # LLM prompt templates
-└── paper.pdf              # Research paper
-```
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Python 3.8+
-- OpenAI API key (or other LLM provider)
-- Required Python packages (see installation section)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/tszdanger/CTFKnow.git
-   cd CTFKnow
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Set up API keys**
-   ```bash
-   export OPENAI_API_KEY="your-openai-api-key"
-   # For other providers, set appropriate environment variables
-   ```
-
-### Basic Usage
-
-#### 1. Data Collection (Optional - Pre-collected data available)
-```bash
-cd scraper
-python scraper.py
-```
-
-#### 2. Knowledge Extraction
-```bash
-python run.py K -i dataset/list.json -o dataset/knowledge.json
-```
-
-#### 3. Question Generation
-```bash
-python run.py Q -i dataset/knowledge.json -o dataset/questions.json -q dataset/question_list.json
-```
-
-#### 4. Model Evaluation
-```bash
-# Multiple choice evaluation
-python run.py E -M single -l gpt-4-0125-preview -o evaluation_log.json
-
-# Open-ended question evaluation
-python run.py E -M open -l gpt-4-0125-preview -o evaluation_log.json
-```
-
-## 📊 Dataset Statistics
-
-The CTFKnow dataset includes:
-
-- **13,000+ CTF Challenges** from various competitions
-- **6 Challenge Categories**: Web, Pwn, Reverse, Crypto, Forensics, Misc
-- **2019-2024 Time Span**: Covers challenges from multiple years
-- **Difficulty Distribution**: Normalized difficulty scores
-- **Quality Filtered**: Only high-rated write-ups included
-
-### Challenge Distribution
-
-| Category | Count | Percentage |
-|----------|-------|------------|
-| Web | ~2,500 | 19% |
-| Pwn | ~2,000 | 15% |
-| Reverse | ~2,200 | 17% |
-| Crypto | ~2,800 | 22% |
-| Forensics | ~1,800 | 14% |
-| Misc | ~1,700 | 13% |
-
-## 🔧 Core Components
-
-### 1. Data Collection Module (`scraper/`)
-
-The scraper module automatically collects CTF write-ups from CTFtime.org:
-
-- **Competition Discovery**: Automatically finds CTF competitions
-- **Write-up Selection**: Chooses highest-rated write-ups for each challenge
-- **Content Processing**: Converts HTML to clean Markdown format
-- **Metadata Extraction**: Captures challenge type, difficulty, and competition info
-
-```python
-# Example: Scraping a specific competition
-from scraper.ctft.get_writeup_url import list_writeups
-writeups = await list_writeups("https://ctftime.org/event/1234/tasks/")
-```
-
-### 2. Knowledge Extraction (`Knowledge` class)
-
-Extracts universal cybersecurity knowledge from write-ups:
-
-- **LLM-Powered Extraction**: Uses GPT-3.5-turbo for knowledge identification
-- **Universal Knowledge**: Focuses on transferable security concepts
-- **Structured Output**: Generates standardized knowledge representations
-- **Payload Examples**: Includes practical exploitation examples
-
-```python
-# Example: Knowledge extraction
-from run import Knowledge
-extractor = Knowledge('dataset/list.json', 'dataset/knowledge.json')
-extractor.extract()
-```
-
-### 3. Question Generation (`Question` class)
-
-Generates assessment questions from extracted knowledge:
-
-- **Multiple Choice Questions**: Creates 4-option questions with distractors
-- **Open-Ended Questions**: Generates short-answer questions
-- **Difficulty Scaling**: Questions match original challenge difficulty
-- **Quality Control**: Ensures question clarity and correctness
-
-```python
-# Example: Question generation
-from run import Question
-generator = Question('dataset/knowledge.json', 'dataset/questions.json', 'dataset/question_list.json')
-generator.generate()
-```
-
-### 4. Model Evaluation (`Evaluation` class)
-
-Comprehensive evaluation of LLM performance:
-
-- **Multiple Metrics**: Accuracy, precision, recall, F1-score
-- **Batch Processing**: Efficient evaluation of large question sets
-- **Detailed Logging**: Comprehensive evaluation logs
-- **Model Comparison**: Easy comparison between different LLMs
-
-```python
-# Example: Model evaluation
-from run import Evaluation
-evaluator = Evaluation('gpt-4-0125-preview', 'dataset/question_list.json')
-results = evaluator.envaluate()
-```
-
-## 🎯 Use Cases
-
-### 1. LLM Security Assessment
-Evaluate how well different LLMs perform on cybersecurity tasks:
+This repo doesn't ship one. [dataset/list_knwoledge_question.json](dataset/list_knwoledge_question.json)
+is CTFKnow's *knowledge-extraction* output (no `question`/`answer` fields) —
+not something you can evaluate against. Produce a real question list first:
 
 ```bash
-# Compare multiple models
-python run.py E -M single -l gpt-4-0125-preview -o gpt4_results.json
-python run.py E -M single -l claude-3-opus -o claude_results.json
-python run.py E -M single -l llama-3-70b -o llama_results.json
+cd Experiments/CTFKnow
+python3 run.py K -i dataset/list.json -o dataset/knowledge.json
+python3 run.py Q -i dataset/knowledge.json -o dataset/questions.json -q dataset/question_list.json
 ```
 
-### 2. Security Education
-Generate educational content for cybersecurity training:
+`K` and `Q` call the OpenAI API (`gpt-3.5-turbo` / `gpt-4-0125-preview`) to
+extract knowledge and generate multiple-choice questions from the write-ups
+under `dataset/raw/`. This produces `dataset/question_list.json` — a JSON list
+of `{"question": ..., "answer": "A"}` objects — which is what you pass to `-o`
+in the evaluation step below (`Envaluation` reads it as input and writes
+graded results back into the same file).
+
+## 3. Run with Pen-SLM (local)
+
+Pen-SLM is served locally via [Experiments/server.py](../server.py), which
+exposes an OpenAI-compatible `/v1/chat/completions` endpoint. `run.py`
+recognizes the model name `pen-slm` and routes it there automatically.
+
+**Easiest path** — from the repo root, this extracts the model if needed,
+starts the server, waits for it to load, runs the evaluation, and shuts the
+server down:
 
 ```bash
-# Generate questions for specific categories
-python run.py Q -i dataset/web_knowledge.json -o web_questions.json -q web_question_list.json
+python3 Experiments/run_experiments.py --only ctfknow \
+  --ctfknow-questions Experiments/CTFKnow/dataset/question_list.json
+# add --quantized-server if you don't have an A100-class GPU
 ```
 
-### 3. Research Benchmark
-Use as a standardized benchmark for security AI research:
+**Manual path**, if you want the server running independently. From the repo
+root, one-time model setup:
 
 ```bash
-# Full pipeline for research
-python run.py K -i dataset/list.json -o dataset/knowledge.json
-python run.py Q -i dataset/knowledge.json -o dataset/questions.json -q dataset/question_list.json
-python run.py E -M single -l your-model -o research_results.json
+git lfs pull
+python3 -c "import sys; sys.path.insert(0, 'Experiments'); import run_experiments as r; r.ensure_model_available()"
 ```
 
-### 4. Vulnerability Analysis
-Build datasets with vulnerable code for security research:
+Then, in one terminal, start the server and leave it running (`server.py`
+blocks in the foreground):
 
 ```bash
-python run.py B -l dataset/list.json -o dataset/vulnerable_code.json
+cd Experiments && python3 server.py            # or: python3 server.py --quantized
 ```
 
-## 📈 Performance Metrics
-
-CTFKnow provides comprehensive evaluation metrics:
-
-- **Accuracy**: Overall correct answer rate
-- **Category-wise Performance**: Performance breakdown by challenge type
-- **Difficulty Analysis**: Performance across different difficulty levels
-- **Question Type Analysis**: Multiple choice vs. open-ended performance
-- **Confidence Analysis**: Model confidence vs. accuracy correlation
-
-## 🔧 Advanced Configuration
-
-### Custom Prompts
-Modify `prompts.py` to customize LLM interactions:
-
-```python
-# Example: Custom knowledge extraction prompt
-CUSTOM_EXTRACTION_PROMPT = """
-You are an expert cybersecurity analyst. Extract the core security concepts from this CTF write-up.
-Focus on universal principles that apply across different scenarios.
-"""
-```
-
-### Model Integration
-Add support for new LLM providers in `run.py`:
-
-```python
-# Example: Adding new model support
-def query_custom_model(input, system_prompt):
-    # Implement your model API call here
-    response = your_model_api(input, system_prompt)
-    return response, 1
-```
-
-### Data Processing Pipeline
-Customize the data processing workflow:
-
-```python
-# Example: Custom data preprocessing
-class CustomKnowledge(Knowledge):
-    def preprocess_writeup(self, writeup_content):
-        # Add your preprocessing logic
-        return processed_content
-```
-
-## 📚 API Reference
-
-### Main Classes
-
-#### `Buildinit`
-Initializes the dataset and generates statistics.
-
-```python
-init = Buildinit('dataset/list.json', 'dataset/raw', 'dataset/data.json')
-init.build()  # Build initial dataset
-init.draw_graph()  # Generate statistics
-```
-
-#### `Knowledge`
-Extracts cybersecurity knowledge from write-ups.
-
-```python
-extractor = Knowledge('dataset/list.json', 'dataset/knowledge.json')
-extractor.extract()  # Extract knowledge
-extractor.save_data()  # Save results
-```
-
-#### `Question`
-Generates questions from extracted knowledge.
-
-```python
-generator = Question('dataset/knowledge.json', 'dataset/questions.json', 'dataset/question_list.json')
-generator.generate()  # Generate questions
-generator.convert_questions()  # Convert to open-ended
-```
-
-#### `Evaluation`
-Evaluates LLM performance on generated questions.
-
-```python
-evaluator = Evaluation('model-name', 'dataset/question_list.json')
-evaluator.envaluate()  # Multiple choice evaluation
-evaluator.envaluate_short_answer()  # Open-ended evaluation
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit your changes**: `git commit -m 'Add amazing feature'`
-4. **Push to the branch**: `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
-
-### Development Setup
+In a second terminal, once `curl http://localhost:8083/health` reports
+`model_loaded: true`, run the evaluation against it:
 
 ```bash
-# Clone and setup development environment
-git clone https://github.com/tszdanger/CTFKnow.git
-cd CTFKnow
-pip install -r requirements-dev.txt
-pre-commit install
+cd Experiments/CTFKnow
+python3 run.py E -M single -l pen-slm -o dataset/question_list.json
 ```
 
-## 📄 License
+If the server isn't on the default `http://localhost:8083`, set
+`PEN_SLM_SERVER_URL` (e.g. `export PEN_SLM_SERVER_URL=http://localhost:8083/v1`)
+before running `run.py`.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+**Note:** Qwen3-14B is a "thinking" model and may prepend `<think>...</think>`
+to its output by default. CTFKnow's grading only checks the *first character*
+of the response (`response.choices[0].message.content[0] in "ABCD"`), so the
+`/v1/chat/completions` endpoint defaults `enable_thinking=False` to avoid
+this — worth spot-checking a few raw responses before trusting the accuracy
+numbers.
 
-## 📖 Citation
+## 4. Run with a commercial LLM (e.g. `gpt-5-mini`)
 
-If you use CTFKnow in your research, please cite our paper:
+No local server needed — any model your `OPENAI_API_KEY` has access to works
+directly through `-l`:
 
-```bibtex
-@article{ji2025measuring,
-  title={Measuring and Augmenting Large Language Models for Solving Capture-the-Flag Challenges},
-  author={Ji, Zimo and Wu, Daoyuan and Jiang, Wenyuan and Ma, Pingchuan and Li, Zongjie and Wang, Shuai},
-  journal={arXiv preprint arXiv:2506.17644},
-  year={2025}
-}
+```bash
+cd Experiments/CTFKnow
+python3 run.py E -M single -l gpt-5-mini -o dataset/question_list.json
 ```
 
+Swap `gpt-5-mini` for whatever model id you want to benchmark. Since `-o` is
+read as input too, copy the ungraded question list first if you want a
+separate graded file per model instead of overwriting the same one:
 
+```bash
+cp dataset/question_list.json dataset/question_list_gpt5mini.json
+python3 run.py E -M single -l gpt-5-mini -o dataset/question_list_gpt5mini.json
+```
 
----
+## 5. Results
+
+`-o` doubles as both input and output: `Envaluation` reads the question list
+from it and writes each question's grade (`correct` / `incorrect` /
+`undesired`, keyed by model name) back into the same file as it goes. A final
+`correct=.. incorrect=.. undesired=..` summary for the run prints to stdout
+once all questions are graded.

@@ -657,7 +657,11 @@ def main():
         # writes graded results back into the same file as it goes.
         envaluator = Envaluation(args.llm, args.output)
         if args.mode == 'single':
-            envaluator.envaluate()
+            correct_rate, incorrect_rate, undesired_rate = envaluator.envaluate()
+            print(
+                f"\nFinal results for {args.llm}: "
+                f"correct={correct_rate:.2%}  incorrect={incorrect_rate:.2%}  undesired={undesired_rate:.2%}"
+            )
         elif args.mode == 'short':
             envaluator.envaluate_short_answer()
     elif args.command == 'B':
