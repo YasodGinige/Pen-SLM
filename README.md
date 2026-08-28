@@ -72,7 +72,7 @@ Trained_models/Pen-SLM/
 For evaluation and local inference, see [`Experiments/README.md`](Experiments/README.md).
 
 
-## 8. Run evaluation experiments
+## Run evaluation experiments
 
 IF you are directly diving into experiments without fine-tuning the model, you need to pull the Pen-SLM model.
 The trained `Pen-SLM` LoRA adapter is checked into this repo as a Git LFS
