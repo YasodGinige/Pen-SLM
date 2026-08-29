@@ -25,8 +25,11 @@ to run `git lfs pull` rather than failing with a confusing zip error.
 
 ## Contents
 
-- [Test-Set/](Test-Set/) — `test_strategy_Pen-SLM.py` and `test_action_Pen-SLM.py`,
-  GEval-based accuracy checks against held-out pentest strategy/action data.
+- [Test-Set/](Test-Set/) — GEval-based accuracy checks against held-out pentest
+  strategy/action data. `test_strategy_Pen-SLM.py` / `test_action_Pen-SLM.py`
+  evaluate the local Pen-SLM adapter; `test_strategy_GPT-5.4.py` /
+  `test_action_GPT-5.4.py` run the identical eval against a hosted OpenAI
+  model instead, for comparison.
 - [server.py](server.py) — loads `Qwen/Qwen3-14B` + the `Trained_models/Pen-SLM`
   LoRA adapter and serves it over FastAPI (custom `/generate` routes plus an
   OpenAI-compatible `/v1/chat/completions`).
@@ -75,16 +78,45 @@ directly. If you need to run those on a smaller GPU too, apply the same
 
 All commands below assume you're in the repo root with the venv active.
 
-### Test-Set evaluation
+### Test-Set evaluation, against Pen-SLM
 
 ```bash
 python3 Experiments/run_experiments.py --only strategy   # or --only action, or --only all
 ```
 
 Extracts `Trained_models/Pen-SLM` from the LFS zip if missing, then runs the
-requested Test-Set script(s) directly against the base model (no server involved).
-See the root README's "Run evaluation experiments" section for the data-file
-caveats (some CSVs these scripts expect aren't included in this repo).
+requested Test-Set script(s) against it directly (no server involved). Run
+from the repo root — `run_experiments.py` launches these scripts itself with
+the right working directory (`Experiments/Test-Set/`); both read
+`Data/test_data.csv` and write to `Experiments/Results/`.
+
+### Test-Set evaluation, against a commercial LLM (e.g. GPT-5.4)
+
+`test_strategy_GPT-5.4.py` and `test_action_GPT-5.4.py` run the exact same
+eval (same data, prompts, G-EVAL judge) but call a hosted OpenAI model as the
+generator instead of loading Pen-SLM locally — no GPU, no `Trained_models/`,
+no server needed. They are **not** wired into `run_experiments.py`; run them
+directly, with `cwd` set to their own directory (they resolve
+`../../Data/test_data.csv` and `../Results/...` relative to themselves):
+
+```bash
+export OPENAI_API_KEY=...
+cd Experiments/Test-Set
+python3 test_strategy_GPT-5.4.py
+python3 test_action_GPT-5.4.py
+```
+
+Results land in `Experiments/Results/results_GPT-5.4_strategy.csv` and
+`Experiments/Results/GPT-5.4_action.csv`.
+
+`"gpt-5.4"` is a placeholder — it's a bare `GENERATOR_MODEL = "gpt-5.4"`
+constant near the top of each file, so swap in whatever chat-completions
+model id your OpenAI account actually has access to. The G-EVAL judge stays
+`gpt-4o-mini` regardless of what you put there, so scores stay comparable
+across different generator models (including Pen-SLM's own eval scripts). If
+the model rejects `temperature`/`top_p`/`max_completion_tokens` (some
+reasoning-tier models only accept defaults), both scripts catch that and
+retry with just `model` + `messages` rather than failing the whole run.
 
 ### CTFKnow, against a locally-deployed Pen-SLM
 

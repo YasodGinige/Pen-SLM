@@ -261,21 +261,21 @@ def compute_context_similarity(gt: str, gen: str) -> float:
 # Model loading (UNCHANGED)
 # -----------------------------
 print("Loading tokenizer...")
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME, trust_remote_code=True)
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 
 print("Loading base model...")
 model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
+    BASE_MODEL_NAME,
     device_map="auto",
     trust_remote_code=True,
     torch_dtype=torch.bfloat16,
 )
 
 print("Loading LoRA adapter...")
-model = PeftModel.from_pretrained(model, LORA_DIR)
+model = PeftModel.from_pretrained(model, LORA_PATH)
 model.eval()
 
 
