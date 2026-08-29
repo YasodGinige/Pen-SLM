@@ -170,19 +170,3 @@ curl http://localhost:8083/v1/chat/completions \
   -d '{"model":"pen-slm","messages":[{"role":"user","content":"What is a SQL injection?"}]}'
 ```
 
-## Notes / gotchas
-
-- `server.py` resolves its LoRA path as `./../Trained_models/Pen-SLM` (relative
-  to CWD), so run it with `cwd=Experiments/` — either `cd Experiments &&
-  python3 server.py`, or let `run_experiments.py` launch it for you.
-- `Qwen/Qwen3-14B` is a "thinking" model and may prepend `<think>...</think>`
-  to its output by default. CTFKnow's grading only checks the *first
-  character* of the response (`response.choices[0].message.content[0] in
-  "ABCD"`), so `/v1/chat/completions` defaults `enable_thinking=False` in the
-  chat template to avoid that. Still worth spot-checking a few raw responses
-  before trusting the accuracy numbers.
-- `run.py`'s `E` command and `Envaluation.envaluate()` had two pre-existing
-  bugs (hardcoded model/question-file, and a variable-shadowing bug that made
-  every non-Groq model raise `UnboundLocalError`) that were fixed to make the
-  `pen-slm` routing possible at all — see the root README's CTFKnow section
-  for details.
