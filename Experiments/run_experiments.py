@@ -100,15 +100,18 @@ def _check_required_inputs(script_name: str, required_paths) -> bool:
     missing = [p for p in required_paths if not (REPO_ROOT / p).exists()]
     if missing:
         print(f"[run_experiments] Skipping {script_name}: missing input file(s): {', '.join(missing)}")
-        print("[run_experiments]   Note: Data/test_data.csv exists with a matching column schema; "
-              "point the script at it (or add the expected file) before re-running.")
+        print("[run_experiments]   These ship with the repo under Data/ -- check your checkout/clone "
+              "(e.g. git lfs pull / git status) if they're missing.")
         return False
     return True
 
 
 def run_script(script_path: Path, label: str) -> None:
     print(f"\n[run_experiments] ==== Running {label} ====")
-    subprocess.run([sys.executable, str(script_path)], cwd=REPO_ROOT, check=True)
+    # test_strategy_Pen-SLM.py / test_action_Pen-SLM.py resolve their paths
+    # (Data/test_data.csv, Trained_models/Pen-SLM, Results/) relative to their
+    # own directory, so they must be launched with cwd=Test-Set/.
+    subprocess.run([sys.executable, str(script_path)], cwd=TEST_SET_DIR, check=True)
 
 
 def _server_is_ready() -> bool:
@@ -228,18 +231,19 @@ def main():
 
     ensure_model_available(force=args.force_extract)
 
-    for res_dir in ("Results", "Results/Action_results"):
-        (REPO_ROOT / res_dir).mkdir(parents=True, exist_ok=True)
+    # test_strategy_Pen-SLM.py / test_action_Pen-SLM.py write to ./../Results/
+    # relative to their own directory, i.e. Experiments/Results/.
+    (REPO_ROOT / "Experiments" / "Results").mkdir(parents=True, exist_ok=True)
 
     ran_any = False
 
     if args.only in ("strategy", "all"):
-        if _check_required_inputs("test_strategy_Pen-SLM.py", ["Data/processed_data_test.csv"]):
+        if _check_required_inputs("test_strategy_Pen-SLM.py", ["Data/test_data.csv"]):
             run_script(STRATEGY_SCRIPT, "Strategy evaluation")
             ran_any = True
 
     if args.only in ("action", "all"):
-        if _check_required_inputs("test_action_Pen-SLM.py", ["Data/output_test_data.csv"]):
+        if _check_required_inputs("test_action_Pen-SLM.py", ["Data/test_data.csv"]):
             run_script(ACTION_SCRIPT, "Action evaluation")
             ran_any = True
 
